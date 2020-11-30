@@ -7,6 +7,7 @@ public class GrappleScript : MonoBehaviour
   private GrapplingGunScript ggs;
   private Transform tf;
   private Rigidbody rb;
+  public LayerMask LayerMask;
   private bool hascollided = false;
 
   void Awake()
@@ -28,5 +29,6 @@ public class GrappleScript : MonoBehaviour
       rb.isKinematic = true;
       hascollided = true;
     }
+    //Debug.Log(collision.gameObject.layer);
   }
 }

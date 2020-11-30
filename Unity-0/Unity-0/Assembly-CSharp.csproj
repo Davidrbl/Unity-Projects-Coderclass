@@ -55,11 +55,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\CoinScript.cs" />
-     <Compile Include="Assets\ScoreScript.cs" />
-     <Compile Include="Assets\CameraScript.cs" />
      <Compile Include="Assets\RespawnScript.cs" />
+     <Compile Include="Assets\PlayerController.cs" />
+     <Compile Include="Assets\CameraScript.cs" />
+     <Compile Include="Assets\ScoreScript.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/david/Documents/GitHub/Unity-Projects-Coderclass/Unity-0/Unity-0/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
