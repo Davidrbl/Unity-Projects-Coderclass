@@ -8,6 +8,8 @@ public class ShotgunScript : MonoBehaviour
 
     public GameObject bulletPrefab;
 
+    public GameObject bulletImpulsePrefab;
+
     private Vector3 shootPoint = new Vector3(0, 0, (float)0.04);
 
     public float Ammo = 100;
@@ -18,7 +20,7 @@ public class ShotgunScript : MonoBehaviour
 
     private float BulletsPerShot = 4f;
 
-    private float spreadRadius = 5f;
+    //private float spreadRadius = 5f;
 
     public bool canShoot;
 
@@ -35,15 +37,14 @@ public class ShotgunScript : MonoBehaviour
         {
           for (int i = 0; i < BulletsPerShot; i++)
           {
-            Shoot();
-            Debug.Log("bla");
+            Shoot(i, (i == 0));
           }
         }
         else
         {
           for (int i = 0; i < ammoInMag; i++)
           {
-            Shoot();
+            Shoot(i, (i == 0));
           }
         }
       }
@@ -52,16 +53,19 @@ public class ShotgunScript : MonoBehaviour
         Debug.Log("reload");
       }
 
-      if (Input.GetKeyDown(KeyCode.P))
-      {
-        Shoot();
-      }
     }
 
-    void Shoot()
+    void Shoot(int spreadRadius, bool hasImpact)
         {
-          Vector3 spread = Random.insideUnitSphere * spreadRadius;
-          Instantiate(bulletPrefab, tf.position, tf.rotation * Quaternion.Euler(spread));
+          if (!hasImpact)
+          {
+            Vector3 spread = Random.insideUnitSphere * spreadRadius;
+            Instantiate(bulletPrefab, tf.position, tf.rotation * Quaternion.Euler(spread));
+          }
+          else
+          {
+            Instantiate(bulletImpulsePrefab, tf.position, tf.rotation);
+          }
         }
 
     void Reload()

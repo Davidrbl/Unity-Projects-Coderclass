@@ -22,6 +22,7 @@ public class BulletScript : MonoBehaviour
       if (collision.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
       {
         collision.transform.gameObject.SendMessage("TakeDamage", 10);
+        Destroy(gameObject);
       }
       else if (collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets"))
       {
