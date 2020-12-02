@@ -33,11 +33,11 @@ public class BulletImpactScript : MonoBehaviour
     */
     if (collision.transform.gameObject.layer != LayerMask.NameToLayer("Player") && collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets") && collision.transform.gameObject.layer != LayerMask.NameToLayer("Default"))
     {
-      Instantiate(ImpactObj);
-      Debug.Log(collision.transform.gameObject.layer);
+      Instantiate(ImpactObj, tf);
+      //Debug.Log(collision.transform.gameObject.layer);
       Destroy(gameObject);
     }
-    Debug.Log(collision.transform.gameObject.layer);
+    //Debug.Log(collision.transform.gameObject.layer);
   }
 
 }
