@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ImpulseScript : MonoBehaviour
 {
-    private float ImpulseStrenth = 50f;
+    private float ImpulseStrenth = 500f;
     private float ImpulseRadius = 500f;
     private Transform tf;
     // Start is called before the first frame update
@@ -18,7 +18,8 @@ public class ImpulseScript : MonoBehaviour
       {
           //force adden aan alle gameObjects met rigidbodies
           Vector3 moveDir = tf.position - hitColliders[i].GetComponent<Transform>().position;
-          hitColliders[i].GetComponent<Rigidbody>().AddForce(moveDir * ImpulseStrenth);
+
+          //hitColliders[i].GetComponent<Rigidbody>().AddForce((Vector3.one / moveDir) * ImpulseStrenth);
           Debug.Log(moveDir);
       }
       Debug.Log("Impulse!");
