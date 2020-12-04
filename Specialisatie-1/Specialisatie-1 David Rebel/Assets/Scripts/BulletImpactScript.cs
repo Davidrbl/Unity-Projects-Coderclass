@@ -21,16 +21,6 @@ public class BulletImpactScript : MonoBehaviour
 
   void OnTriggerEnter(Collider collision)
   {
-    /*
-    if (collision.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-    {
-      collision.transform.gameObject.SendMessage("TakeDamage", 10);
-    }
-    else if (collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets"))
-    {
-      Destroy(gameObject);
-    }
-    */
     if (collision.transform.gameObject.layer == LayerMask.NameToLayer("Player") || collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets") || collision.transform.gameObject.layer == LayerMask.NameToLayer("Default"))
     {
       Instantiate(ImpactObj, tf);

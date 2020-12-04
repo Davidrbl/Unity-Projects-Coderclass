@@ -25,7 +25,6 @@ public class GrappleScript : MonoBehaviour
     if (!hascollided)
     {
       ggs.StartGrapple(this.gameObject);
-      Debug.Log("kaboom!");
       rb.isKinematic = true;
       hascollided = true;
     }

@@ -9,7 +9,7 @@ public class TestEnemy : MonoBehaviour
   {
     Health -= damage;
 
-    Debug.Log(gameObject.name + " took damage. Health = " + Health);
+    //Debug.Log(gameObject.name + " took damage. Health = " + Health);
 
     if (Health <= 0)
     {
