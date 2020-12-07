@@ -21,20 +21,20 @@ public class BulletImpactScript : MonoBehaviour
 
   void OnTriggerEnter(Collider collision)
   {
-    if (collision.transform.gameObject.layer == LayerMask.NameToLayer("Player") || collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets") || collision.transform.gameObject.layer == LayerMask.NameToLayer("Default"))
+    if (collision.transform.gameObject.layer != LayerMask.NameToLayer("Player") && collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets") && collision.transform.gameObject.layer == LayerMask.NameToLayer("Default"))
     {
       Instantiate(ImpactObj, tf);
       //Debug.Log(collision.transform.gameObject.layer);
-      Debug.Log("boblob");
-      Debug.Log(collision.transform.gameObject.layer);
+      //Debug.Log("boblob");
+      //Debug.Log(collision.transform.gameObject.layer);
       //Debug.Log((collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets")) + "Bullets");
       Destroy(this.gameObject);
     }
     //Debug.Log((collision.transform.gameObject.layer != LayerMask.NameToLayer("Player") && collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets") && collision.transform.gameObject.layer != LayerMask.NameToLayer("Default")));
     //Debug.Log(collision.transform.gameObject.layer);
-    Debug.Log((collision.transform.gameObject.layer == LayerMask.NameToLayer("Player")) + "Player");
-    Debug.Log((collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets"))+ "Bullets");
-    Debug.Log((collision.transform.gameObject.layer == LayerMask.NameToLayer("Default")) + "Default");
+    //Debug.Log((collision.transform.gameObject.layer == LayerMask.NameToLayer("Player")) + "Player");
+    //Debug.Log((collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets"))+ "Bullets");
+    //Debug.Log((collision.transform.gameObject.layer == LayerMask.NameToLayer("Default")) + "Default");
   }
 
 }

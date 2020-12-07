@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ImpulseScript : MonoBehaviour
 {
-    private float ImpulseStrenth = 500f;
-    private float ImpulseRadius = 500f;
+    private float ImpulseStrenth = 50f;
+    private float playerImpulseStrength = 500f;
+    private float ImpulseRadius = 10f;
     public LayerMask lm;
     private Transform tf;
     // Start is called before the first frame update
     void Awake()
     {
-      Debug.Log("ha");
+      //Debug.Log("ha");
       tf = GetComponent<Transform>();
       int maxColliders = 10;
       Collider[] hitColliders = new Collider[maxColliders];
@@ -20,11 +21,22 @@ public class ImpulseScript : MonoBehaviour
       {
           //force adden aan alle gameObjects met rigidbodies
           Vector3 moveDir = tf.position - hitColliders[i].GetComponent<Transform>().position;
+          Rigidbody objRb = hitColliders[i].GetComponent<Rigidbody>();
+          if (objRb != null)
+          {
+            if (objRb.gameObject.name == "Player")
+            {
+              objRb.AddForce((-moveDir) * playerImpulseStrength);
+            }
+            else
+            {
+              objRb.AddForce((-moveDir) * ImpulseStrenth);
+            }
 
-          hitColliders[i].GetComponent<Rigidbody>().AddForce((moveDir) * ImpulseStrenth);
-          Debug.Log("\t" + moveDir + hitColliders[i]);
+          }
+
+          //Debug.Log("\t" + moveDir + hitColliders[i]);
       }
-      Debug.Log("Impulse!");
+      //Debug.Log("Impulse!");
     }
-
 }
