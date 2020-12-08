@@ -9,10 +9,12 @@ public class ImpulseScript : MonoBehaviour
     private float ImpulseRadius = 10f;
     public LayerMask lm;
     private Transform tf;
+    private ParticleSystem pf;
     // Start is called before the first frame update
     void Awake()
     {
       //Debug.Log("ha");
+      GetComponent<ParticleSystem>().Play();
       tf = GetComponent<Transform>();
       int maxColliders = 10;
       Collider[] hitColliders = new Collider[maxColliders];
