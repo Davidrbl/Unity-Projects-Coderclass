@@ -5,7 +5,7 @@ using UnityEngine;
 public class ImpulseScript : MonoBehaviour
 {
     private float ImpulseStrenth = 50f;
-    private float playerImpulseStrength = 500f;
+    private float playerImpulseStrength = 100f;
     private float ImpulseRadius = 10f;
     public LayerMask lm;
     private Transform tf;
@@ -21,16 +21,17 @@ public class ImpulseScript : MonoBehaviour
       {
           //force adden aan alle gameObjects met rigidbodies
           Vector3 moveDir = tf.position - hitColliders[i].GetComponent<Transform>().position;
+          //moveDir = new Vector3(1/moveDir.x, 1/moveDir.y, 1/moveDir.z);
           Rigidbody objRb = hitColliders[i].GetComponent<Rigidbody>();
           if (objRb != null)
           {
             if (objRb.gameObject.name == "Player")
             {
-              objRb.AddForce((-moveDir) * playerImpulseStrength);
+              objRb.AddForce(-(moveDir) * playerImpulseStrength);
             }
             else
             {
-              objRb.AddForce((-moveDir) * ImpulseStrenth);
+              objRb.AddForce(-(moveDir) * ImpulseStrenth);
             }
 
           }
