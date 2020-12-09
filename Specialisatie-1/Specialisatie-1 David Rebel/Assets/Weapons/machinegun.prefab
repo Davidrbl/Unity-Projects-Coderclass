@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3294885635757379737, guid: 6b9a8e5ff08b2544a82999f16c0e687c, type: 3}
+  nextTimeToShot: 0
+  timeBetweenShots: 0.2
   Ammo: 100
   ammoInMag: 10
   canShoot: 0

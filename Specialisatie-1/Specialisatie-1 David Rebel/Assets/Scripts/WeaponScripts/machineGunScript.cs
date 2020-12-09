@@ -12,7 +12,7 @@ public class machineGunScript : MonoBehaviour
 
     [SerializeField] private float nextTimeToShot = 0f;
 
-    [SerializeField] private float timeBetweenShots = 0.5f;
+    [SerializeField] private float timeBetweenShots = 0.2f;
 
     public float Ammo = 100;
 
@@ -35,11 +35,14 @@ public class machineGunScript : MonoBehaviour
 
       if (Input.GetButton("Fire1"))
       {
-        Debug.Log("fire1 is down\t" + nextTimeToShot);
+        //Debug.Log("fire1 is down\t" + nextTimeToShot);
         if (nextTimeToShot >= timeBetweenShots)
+        {
           Shoot();
-          Debug.Log("bla\t" + nextTimeToShot);
+          //Debug.Log("nextTimeToShot is greater than timeBetweenShots: " + (nextTimeToShot >= timeBetweenShots));
+          //Debug.Log("bla\t" + (nextTimeToShot >= timeBetweenShots));
           nextTimeToShot = 0f;
+        }
       }
     }
 

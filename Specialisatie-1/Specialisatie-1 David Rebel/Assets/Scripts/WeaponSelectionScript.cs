@@ -22,8 +22,6 @@ public class WeaponSelectionScript : MonoBehaviour
 
     void ChooseGun(GameObject gunObj)
     {
-      Destroy(currentGun);
-      Instantiate(gunObj, Vector3.zero, Quaternion.identity);
-      currentGun = GameObject.Find(currentGunName);
+      
     }
 }

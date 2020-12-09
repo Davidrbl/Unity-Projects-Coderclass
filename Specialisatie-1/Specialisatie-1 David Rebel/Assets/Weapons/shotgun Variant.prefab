@@ -55,8 +55,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81cda2c7fff0c0849b36cb96927ae122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   bulletPrefab: {fileID: 3294885635757379737, guid: 6b9a8e5ff08b2544a82999f16c0e687c, type: 3}
+  bulletImpulsePrefab: {fileID: 4374346794486007562, guid: f96eea7db36fffa48a8a253f99c8e6b9, type: 3}
   Ammo: 100
   ammoInMag: 100
   canShoot: 0
@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 25ef084687daa014b8538f35cf0d5aa6, type: 3}
       propertyPath: m_Name
-      value: shotgun
+      value: shotgun Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 25ef084687daa014b8538f35cf0d5aa6, type: 3}
       propertyPath: m_Layer
