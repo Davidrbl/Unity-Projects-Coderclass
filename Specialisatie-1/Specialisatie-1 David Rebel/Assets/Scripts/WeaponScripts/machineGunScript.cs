@@ -35,9 +35,10 @@ public class machineGunScript : MonoBehaviour
 
       if (Input.GetButton("Fire1"))
       {
+        Debug.Log("fire1 is down\t" + nextTimeToShot);
         if (nextTimeToShot >= timeBetweenShots)
           Shoot();
-          Debug.Log("bla" + Time.deltaTime + "\t" + nextTimeToShot);
+          Debug.Log("bla\t" + nextTimeToShot);
           nextTimeToShot = 0f;
       }
     }
