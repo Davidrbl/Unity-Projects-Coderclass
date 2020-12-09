@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class ShotgunScript : MonoBehaviour
 {
-    public Camera cam;
-
     private Transform tf;
 
     public GameObject bulletPrefab;
@@ -19,8 +17,6 @@ public class ShotgunScript : MonoBehaviour
     private float magSize = 10f;
 
     private float BulletsPerShot = 4f;
-
-    //private float spreadRadius = 5f;
 
     public bool canShoot;
 

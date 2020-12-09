@@ -23,7 +23,7 @@ public class BulletImpactScript : MonoBehaviour
   {
     if (collision.transform.gameObject.layer != LayerMask.NameToLayer("Player") && collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets") && collision.transform.gameObject.layer == LayerMask.NameToLayer("Default"))
     {
-      Instantiate(ImpactObj, tf);
+      Instantiate(ImpactObj, tf.position, Quaternion.identity);
       //Debug.Log(collision.transform.gameObject.layer);
       //Debug.Log("boblob");
       //Debug.Log(collision.transform.gameObject.layer);
