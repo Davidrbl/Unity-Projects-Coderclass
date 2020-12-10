@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\WeaponScripts\SniperScript.cs" />
      <Compile Include="Assets\Scripts\HealthBar.cs" />
      <Compile Include="Assets\Scripts\BulletImpactScript.cs" />
+     <Compile Include="Assets\Scripts\GameControllerScript.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/david/Documents/GitHub/Unity-Projects-Coderclass/Specialisatie-1/Specialisatie-1 David Rebel/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

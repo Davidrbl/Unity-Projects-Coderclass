@@ -11,7 +11,7 @@ public class ImpulseScript : MonoBehaviour
     private Transform tf;
     private ParticleSystem pf;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
       //Debug.Log("ha");
       GetComponent<ParticleSystem>().Play();
