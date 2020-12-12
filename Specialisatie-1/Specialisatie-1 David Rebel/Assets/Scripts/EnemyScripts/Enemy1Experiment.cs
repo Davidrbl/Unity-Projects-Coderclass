@@ -11,6 +11,8 @@ public class Enemy1Experiment : MonoBehaviour
     private float speed = 1.5f;
     private float swooshSize = 2f;
     private Rigidbody rb;
+    private float stayRange = 5f;
+    private int isInRangeFactor = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +25,19 @@ public class Enemy1Experiment : MonoBehaviour
     {
         //tf.position = new Vector3(Mathf.Sin(time), 3, 0);
         Vector3 lookPos = playerTf.position - tf.position;
+        if (lookPos.magnitude >= stayRange)
+        {
+          isInRangeFactor = 1;
+        }
+        else
+        {
+          isInRangeFactor = 0;
+        }
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
 
-        rb.velocity = tf.right * Mathf.Sin(time) * swooshSize + new Vector3(0, 3, 0) + (tf.forward * speed);
+        rb.velocity = tf.right * Mathf.Sin(time) * swooshSize + new Vector3(0, 3, 0) + (tf.forward * speed * isInRangeFactor);
         time += 0.05f;
 
     }
