@@ -24,7 +24,7 @@ public class BulletScript : MonoBehaviour
         collision.transform.gameObject.SendMessage("TakeDamage", 10);
         Destroy(gameObject);
       }
-      else if (collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets"))
+      else if (collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets") && collision.transform.gameObject.layer != LayerMask.NameToLayer("Player"))
       {
         Destroy(gameObject);
       }

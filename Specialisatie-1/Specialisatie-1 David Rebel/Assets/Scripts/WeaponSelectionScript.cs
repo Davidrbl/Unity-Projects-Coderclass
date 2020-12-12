@@ -18,14 +18,14 @@ public class WeaponSelectionScript : MonoBehaviour
     {
       if (Input.mouseScrollDelta.y < 0)
       {
-        currentGunIndex -= 1;
+        currentGunIndex += 1;
         currentGunIndex = Mathf.Clamp(currentGunIndex, 0, 2);
         Debug.Log(currentGunIndex);
         ChooseGun(allWeaponPrefabs[currentGunIndex]);
       }
       else if (Input.mouseScrollDelta.y > 0)
       {
-        currentGunIndex += 1;
+        currentGunIndex -= 1;
         currentGunIndex = Mathf.Clamp(currentGunIndex, 0, 2);
         Debug.Log(currentGunIndex);
         ChooseGun(allWeaponPrefabs[currentGunIndex]);
