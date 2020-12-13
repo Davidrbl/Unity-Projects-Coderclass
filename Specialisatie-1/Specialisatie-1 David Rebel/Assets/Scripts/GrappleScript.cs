@@ -26,6 +26,7 @@ public class GrappleScript : MonoBehaviour
     {
       ggs.StartGrapple(this.gameObject);
       rb.isKinematic = true;
+      tf.parent = collision.transform;
       hascollided = true;
     }
     //Debug.Log(collision.gameObject.layer);

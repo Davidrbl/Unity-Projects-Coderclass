@@ -7,9 +7,9 @@ public class Enemy1Experiment : MonoBehaviour
     private Transform tf;
     private float time = 0;
     public Transform playerTf;
-    private float damping = 2f;
-    private float speed = 1.5f;
-    private float swooshSize = 2f;
+    private float damping = 3f;
+    private float speed = 5f;
+    private float swooshSize = 5f;
     private Rigidbody rb;
     private float stayRange = 5f;
     private int isInRangeFactor = 0;
@@ -36,8 +36,8 @@ public class Enemy1Experiment : MonoBehaviour
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
-
-        rb.velocity = tf.right * Mathf.Sin(time) * swooshSize + new Vector3(0, 3, 0) + (tf.forward * speed * isInRangeFactor);
+        Vector3 moveVel = tf.right * Mathf.Sin(time) * swooshSize + (tf.forward * speed * isInRangeFactor);
+        rb.velocity = new Vector3(moveVel.x, rb.velocity.y, moveVel.z);
         time += 0.05f;
 
     }
