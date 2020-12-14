@@ -62,14 +62,14 @@
      <Compile Include="Assets\Scripts\EnemyScripts\TestEnemy.cs" />
      <Compile Include="Assets\Scripts\MovementLooking Scripts\MouseRotation.cs" />
      <Compile Include="Assets\Scripts\WeaponSelectionScript.cs" />
+     <Compile Include="Assets\Scripts\GameControllerScript.cs" />
      <Compile Include="Assets\Scripts\WeaponScripts\ShotgunScript.cs" />
      <Compile Include="Assets\Scripts\BulletScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\Enemy1Experiment.cs" />
      <Compile Include="Assets\Scripts\ImpulseScript.cs" />
      <Compile Include="Assets\Scripts\WeaponScripts\SniperScript.cs" />
      <Compile Include="Assets\Scripts\HealthBar.cs" />
      <Compile Include="Assets\Scripts\BulletImpactScript.cs" />
-     <Compile Include="Assets\Scripts\GameControllerScript.cs" />
-     <Compile Include="Assets\Scripts\EnemyScripts\Enemy1Experiment.cs" />
      <None Include="Assets\Imported assets\License.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/david/Documents/GitHub/Unity-Projects-Coderclass/Specialisatie-1/Specialisatie-1 David Rebel/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
