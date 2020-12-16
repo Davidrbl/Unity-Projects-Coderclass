@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 2916115433396093599}
   - component: {fileID: 2916115433396093598}
   - component: {fileID: 2916115433396093597}
+  - component: {fileID: 2821773743878707109}
   - component: {fileID: 2916115433396093594}
   m_Layer: 8
   m_Name: TestEnemy
@@ -207,6 +208,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTf: {fileID: 0}
+--- !u!114 &2821773743878707109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2916115433396093596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d71a729f91877469c0e397a66baa3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 30
 --- !u!54 &2916115433396093594
 Rigidbody:
   m_ObjectHideFlags: 0
