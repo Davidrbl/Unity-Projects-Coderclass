@@ -22,18 +22,18 @@ public class ImpulseScript : MonoBehaviour
       for (int i = 0; i < numColliders; i++)
       {
           //force adden aan alle gameObjects met rigidbodies
-          Vector3 moveDir = tf.position - hitColliders[i].GetComponent<Transform>().position;
+          Vector3 moveDir = hitColliders[i].GetComponent<Transform>().position - tf.position;
           //moveDir = new Vector3(1/moveDir.x, 1/moveDir.y, 1/moveDir.z);
           Rigidbody objRb = hitColliders[i].GetComponent<Rigidbody>();
           if (objRb != null)
           {
             if (objRb.gameObject.name == "Player")
             {
-              objRb.AddForce(-(moveDir) * playerImpulseStrength);
+              objRb.AddForce((moveDir) * playerImpulseStrength);
             }
             else
             {
-              objRb.AddForce(-(moveDir) * ImpulseStrenth);
+              objRb.AddForce((moveDir) * ImpulseStrenth);
             }
 
           }
