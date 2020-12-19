@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed;
 
+    private float movementLimit = 2f;
+
+    private float counterFactor = 1f;
+
     public float lookDirection;
 
     public GameObject PlayerHead;
@@ -31,7 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
          Vector3 moveDir = (transform.right * InputSide + transform.forward * InputForward) * speed;
 
-         rb.velocity = new Vector3(moveDir.x, rb.velocity.y, moveDir.z);
+         float speedMultiplier = Mathf.Abs(moveDir.magnitude / movementLimit - 1);
+         speedMultiplier = Mathf.Clamp(speedMultiplier, 0, 1);
+
+         rb.AddForce(new Vector3(moveDir.x, 0, moveDir.z) * speedMultiplier, ForceMode.Impulse);
+         rb.AddForce(new Vector3(-rb.velocity.x, 0, -rb.velocity.z) * counterFactor);
 
          if (Input.GetKeyDown("space"))
          {

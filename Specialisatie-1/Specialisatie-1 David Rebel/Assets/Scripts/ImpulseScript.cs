@@ -14,7 +14,7 @@ public class ImpulseScript : MonoBehaviour
     void Start()
     {
       //Debug.Log("ha");
-      GetComponent<ParticleSystem>().Play();
+      //GetComponent<ParticleSystem>().Play();
       tf = GetComponent<Transform>();
       int maxColliders = 10;
       Collider[] hitColliders = new Collider[maxColliders];
@@ -40,6 +40,7 @@ public class ImpulseScript : MonoBehaviour
 
           //Debug.Log("\t" + moveDir + hitColliders[i]);
       }
+      Destroy(gameObject, 1f);
       //Debug.Log("Impulse!");
     }
 }

@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29aedd7147665445b52b3eb4ba08efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodSplash: {fileID: 7640223177930028607, guid: adb5aeca8b8bfde4a904685b0730c04f, type: 3}
 --- !u!54 &-2549633755658327094
 Rigidbody:
   m_ObjectHideFlags: 0
