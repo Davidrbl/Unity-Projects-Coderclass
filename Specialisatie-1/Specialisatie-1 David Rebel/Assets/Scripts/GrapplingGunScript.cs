@@ -61,11 +61,12 @@ public class GrapplingGunScript : MonoBehaviour
 
     float distanceToJoint = Vector3.Distance(tf.position, grapplePos);
 
-    joint.maxDistance = distanceToJoint * 0.8f;
-    joint.minDistance = distanceToJoint * 0.25f;
-    joint.spring = 4f;
-    joint.damper = 7f;
-    joint.massScale = 4f;
+    joint.maxDistance = distanceToJoint * 0.5f;
+    joint.minDistance = distanceToJoint * 0.5f;
+    joint.spring = 30f;
+    joint.damper = 2f;
+    joint.massScale = 1f;
+    joint.tolerance = 10f;
 
     lr.positionCount = 2;
     isGrappling = true;
