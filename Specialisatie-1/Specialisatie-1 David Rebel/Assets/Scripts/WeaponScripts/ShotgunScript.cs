@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShotgunScript : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class ShotgunScript : MonoBehaviour
 
     private float BulletsPerShot = 4f;
 
-    public bool canShoot;
+    public Text ammoText;
 
     void Start()
     {
@@ -46,7 +47,7 @@ public class ShotgunScript : MonoBehaviour
       }
       if (Input.GetKeyDown(KeyCode.R))
       {
-        Debug.Log("reload");
+        Reload();
       }
 
     }
@@ -64,10 +65,17 @@ public class ShotgunScript : MonoBehaviour
             //Debug.Log("bla");
           }
           ammoInMag -= 1;
+          UpdateAmmo();
         }
+    public void UpdateAmmo()
+    {
+      ammoText.text = ammoInMag + "\t | \t" + Ammo;
+    }
 
     void Reload()
     {
-
+      Ammo -= magSize - ammoInMag;
+      ammoInMag = magSize;
+      UpdateAmmo();
     }
 }

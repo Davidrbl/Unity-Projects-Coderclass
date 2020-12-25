@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class machineGunScript : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class machineGunScript : MonoBehaviour
 
     private float BulletsPerShot = 4f;
 
-    public bool canShoot;
+    public Text ammoText;
 
     void Start()
     {
@@ -35,14 +36,18 @@ public class machineGunScript : MonoBehaviour
 
       if (Input.GetButton("Fire1"))
       {
-        //Debug.Log("fire1 is down\t" + nextTimeToShot);
-        if (nextTimeToShot >= timeBetweenShots)
+        if (ammoInMag > 0)
         {
-          Shoot();
-          //Debug.Log("nextTimeToShot is greater than timeBetweenShots: " + (nextTimeToShot >= timeBetweenShots));
-          //Debug.Log("bla\t" + (nextTimeToShot >= timeBetweenShots));
-          nextTimeToShot = 0f;
+          if (nextTimeToShot >= timeBetweenShots)
+          {
+            Shoot();
+            nextTimeToShot = 0f;
+          }
         }
+      }
+      if (Input.GetKeyDown(KeyCode.R))
+      {
+        Reload();
       }
     }
 
@@ -50,10 +55,18 @@ public class machineGunScript : MonoBehaviour
         {
           Instantiate(bulletPrefab, tf.position, tf.rotation);
           ammoInMag -= 1;
+          UpdateAmmo();
         }
+
+    public void UpdateAmmo()
+    {
+      ammoText.text = ammoInMag + "\t | \t" + Ammo;
+    }
 
     void Reload()
     {
-
+      Ammo -= magSize - ammoInMag;
+      ammoInMag = magSize;
+      UpdateAmmo();
     }
 }

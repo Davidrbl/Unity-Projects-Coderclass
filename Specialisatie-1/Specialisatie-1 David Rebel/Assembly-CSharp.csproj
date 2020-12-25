@@ -68,7 +68,7 @@
      <Compile Include="Assets\Scripts\EnemyScripts\Enemy1Experiment.cs" />
      <Compile Include="Assets\Scripts\ImpulseScript.cs" />
      <Compile Include="Assets\Scripts\WeaponScripts\SniperScript.cs" />
-     <Compile Include="Assets\Scripts\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\BloodScript.cs" />
      <Compile Include="Assets\Scripts\BulletImpactScript.cs" />
      <None Include="Assets\Imported assets\License.txt" />

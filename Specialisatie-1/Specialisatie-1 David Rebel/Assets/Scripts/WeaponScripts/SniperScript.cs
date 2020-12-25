@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SniperScript : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class SniperScript : MonoBehaviour
 
   private float BulletsPerShot = 4f;
 
-  public bool canShoot;
+  public Text ammoText;
 
   void Start()
   {
@@ -70,7 +71,14 @@ public class SniperScript : MonoBehaviour
     if (Input.GetButtonUp("Fire1"))
     {
       StopScope();
-      Shoot();
+      if (ammoInMag > 0)
+      {
+        Shoot();
+      }
+    }
+    if (Input.GetKeyDown(KeyCode.R))
+    {
+      Reload();
     }
   }
 
@@ -88,5 +96,17 @@ public class SniperScript : MonoBehaviour
   {
     Instantiate(bulletPrefab, tf.position, tf.rotation);
     ammoInMag -= 1;
+    UpdateAmmo();
+  }
+  public void UpdateAmmo()
+  {
+    ammoText.text = ammoInMag + "\t | " + Ammo;
+  }
+
+  void Reload()
+  {
+    Ammo -= magSize - ammoInMag;
+    ammoInMag = magSize;
+    UpdateAmmo();
   }
 }

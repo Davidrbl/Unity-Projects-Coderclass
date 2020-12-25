@@ -35,5 +35,6 @@ public class WeaponSelectionScript : MonoBehaviour
       currentGun.SetActive(false);
       gunObj.SetActive(true);
       currentGun = gunObj;
+      gunObj.SendMessage("UpdateAmmo");
     }
 }
