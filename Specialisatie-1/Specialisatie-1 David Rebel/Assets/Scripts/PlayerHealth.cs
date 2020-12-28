@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
-    void ChangeHealth(float changeHealth)
+    public void ChangeHealth(float changeHealth)
     {
       health += changeHealth;
       health = Mathf.Clamp(health, 0f, maxHealth);
