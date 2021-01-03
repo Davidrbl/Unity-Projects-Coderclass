@@ -17,7 +17,9 @@ public class ARammoPickupScript : MonoBehaviour
   {
     if (collision.gameObject.name == "Player")
     {
-      Debug.Log(collision.gameObject.GetComponentInChildren(typeof(machineGunScript)));//.Ammo += ammoAmmount;
+      machineGunScript mgs = collision.transform.Find("Head").transform.Find("machinegun").GetComponent<machineGunScript>();
+      mgs.Ammo += ammoAmmount;
+      mgs.SendMessage("UpdateAmmo");
       Destroy(gameObject);
     }
   }

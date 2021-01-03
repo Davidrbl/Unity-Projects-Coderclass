@@ -14,12 +14,14 @@ public class Enemy1Experiment : MonoBehaviour
     private float stayRange = 5f;
     private int isInRangeFactor = 0;
     private Vector3 prevVel = new Vector3(0,0,0);
+    private float sineAway;
     // Start is called before the first frame update
     void Start()
     {
         tf = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         playerTf = GameObject.Find("Player").GetComponent<Transform>();
+        sineAway = Random.Range((float)0.00, (float)5.00);
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class Enemy1Experiment : MonoBehaviour
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
-        Vector3 moveVel = tf.right * Mathf.Sin(time) * swooshSize + (tf.forward * speed * isInRangeFactor);
+        Vector3 moveVel = tf.right * Mathf.Sin(time + sineAway) * swooshSize + (tf.forward * speed * isInRangeFactor);
         Vector3 currVel = new Vector3(moveVel.x, 0, moveVel.z);
         rb.AddForce(currVel - prevVel, ForceMode.Impulse);
         prevVel = currVel;

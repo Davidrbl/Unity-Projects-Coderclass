@@ -10,7 +10,10 @@ public class SGammoPickupScript : MonoBehaviour
   {
     if (collision.gameObject.name == "Player")
     {
-      Debug.Log(collision.gameObject.GetComponentInChildren(typeof(ShotgunScript)));//.Ammo += ammoAmmount;
+      //collision.gameObject.GetComponentInChildren(typeof(ShotgunScript)).Ammo += ammoAmmount;
+      ShotgunScript sgs = collision.transform.Find("Head").transform.Find("shotgun Variant").GetComponent<ShotgunScript>();
+      sgs.Ammo += ammoAmmount;
+      sgs.SendMessage("UpdateAmmo");
       Destroy(gameObject);
     }
   }

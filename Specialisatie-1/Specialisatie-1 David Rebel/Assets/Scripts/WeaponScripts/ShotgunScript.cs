@@ -21,6 +21,8 @@ public class ShotgunScript : MonoBehaviour
 
     public Text ammoText;
 
+    public bool canShoot = false;
+
     void Start()
     {
       tf = GetComponent<Transform>();
@@ -28,7 +30,7 @@ public class ShotgunScript : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-      if (Input.GetButtonDown("Fire1"))
+      if (Input.GetButtonDown("Fire1") && canShoot)
       {
         if (ammoInMag >= BulletsPerShot)
         {
@@ -45,7 +47,7 @@ public class ShotgunScript : MonoBehaviour
           }
         }
       }
-      if (Input.GetKeyDown(KeyCode.R))
+      if (Input.GetKeyDown(KeyCode.R) && canShoot)
       {
         Reload();
       }
@@ -69,13 +71,27 @@ public class ShotgunScript : MonoBehaviour
         }
     public void UpdateAmmo()
     {
-      ammoText.text = ammoInMag + "\t | \t" + Ammo;
+      if (canShoot)
+      {
+        ammoText.text = ammoInMag + "\t | \t" + Ammo;
+      }
     }
 
     void Reload()
     {
       Ammo -= magSize - ammoInMag;
-      ammoInMag = magSize;
+      if (Ammo < 0)
+      {
+        Ammo = 0;
+      }
+      if (Ammo >= magSize)
+      {
+        ammoInMag = magSize;
+      }
+      else
+      {
+        ammoInMag = Ammo;
+      }
       UpdateAmmo();
     }
 }

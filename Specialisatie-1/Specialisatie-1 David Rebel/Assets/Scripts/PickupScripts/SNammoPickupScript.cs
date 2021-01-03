@@ -10,7 +10,9 @@ public class SNammoPickupScript : MonoBehaviour
     {
       if (collision.gameObject.name == "Player")
       {
-        Debug.Log(collision.gameObject.GetComponentInChildren(typeof(SniperScript)));//.Ammo += ammoAmmount;
+        SniperScript sns = collision.transform.Find("Head").transform.Find("sniper").GetComponent<SniperScript>();
+        sns.Ammo += ammoAmmount;
+        sns.SendMessage("UpdateAmmo");
         Destroy(gameObject);
       }
     }

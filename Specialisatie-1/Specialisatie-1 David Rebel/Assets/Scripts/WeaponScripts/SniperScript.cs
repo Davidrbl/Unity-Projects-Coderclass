@@ -31,52 +31,29 @@ public class SniperScript : MonoBehaviour
 
   public Text ammoText;
 
+  public bool canShoot = false;
+
   void Start()
   {
     tf = GetComponent<Transform>();
     cam = GameObject.Find("Main Camera").GetComponent<Camera>();
   }
 
-  /*void Update()
-  {
-    nextTimeToShot += Time.deltaTime;
-
-    if (Input.GetButton("Fire1"))
-    {
-      if (nextTimeToShot >= timeBetweenShots)
-      {
-        Shoot();
-        nextTimeToShot = 0f;
-      }
-    }
-  }
-
-  void Shoot()
-      {
-        Instantiate(bulletPrefab, tf.position, tf.rotation);
-        ammoInMag -= 1;
-      }
-
-  void Reload()
-  {
-
-  }
-  */
   void Update()
   {
-    if (Input.GetButtonDown("Fire1"))
+    if (Input.GetButtonDown("Fire1") && canShoot)
     {
       StartScope();
     }
     if (Input.GetButtonUp("Fire1"))
     {
       StopScope();
-      if (ammoInMag > 0)
+      if (ammoInMag > 0 && canShoot)
       {
         Shoot();
       }
     }
-    if (Input.GetKeyDown(KeyCode.R))
+    if (Input.GetKeyDown(KeyCode.R) && canShoot)
     {
       Reload();
     }
@@ -100,13 +77,27 @@ public class SniperScript : MonoBehaviour
   }
   public void UpdateAmmo()
   {
-    ammoText.text = ammoInMag + "\t | " + Ammo;
+    if (canShoot)
+    {
+      ammoText.text = ammoInMag + "\t | " + Ammo;
+    }
   }
 
   void Reload()
   {
     Ammo -= magSize - ammoInMag;
-    ammoInMag = magSize;
+    if (Ammo < 0)
+    {
+      Ammo = 0;
+    }
+    if (Ammo >= magSize)
+    {
+      ammoInMag = magSize;
+    }
+    else
+    {
+      ammoInMag = Ammo;
+    }
     UpdateAmmo();
   }
 }
