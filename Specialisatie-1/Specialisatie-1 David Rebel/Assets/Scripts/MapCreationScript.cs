@@ -8,6 +8,8 @@ public class MapCreationScript : MonoBehaviour
 
     public GameObject[] allLevelParts;
     public float[] allLevelLengths;
+    [SerializeField] private List<GameObject> allLevelPartsInstantiated;
+    [SerializeField] private List<GameObject> allInBetweenPieces;
     private int playerIndex = 0;
     private float currentZcoord = 0f;
     private float lengthInBetween = 5f;
@@ -17,10 +19,8 @@ public class MapCreationScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      Debug.Log(EnemyCheck());
-      Instantiate(allLevelParts[playerIndex], new Vector3(0,0,currentZcoord + lengthInBetween * playerIndex), Quaternion.identity);
-      currentZcoord = allLevelLengths[playerIndex];
-      playerIndex++;
+      allLevelPartsInstantiated.Add(Instantiate(allLevelParts[playerIndex], new Vector3(0,0,currentZcoord), Quaternion.identity));
+      currentZcoord += allLevelLengths[playerIndex] + lengthInBetween;
     }
 
     // Update is called once per frame
@@ -31,19 +31,38 @@ public class MapCreationScript : MonoBehaviour
         Debug.Log("alle enemies verslagen: " + (EnemyCheck()) + " nu op: " + playerIndex);
         makeNextLevel();
       }
+
+      Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+      for (int i = 0; i < allLevelPartsInstantiated.Count; i++)
+      {
+        GameObject level = allLevelPartsInstantiated[i];
+        if (level == null)
+        {
+          
+        }
+        else if (playerTransform.position.z > allLevelPartsInstantiated[i].GetComponent<Transform>().position.z + allLevelLengths[i]/2 + lengthInBetween/2)
+        {
+          Destroy(allLevelPartsInstantiated[i]);
+          Destroy(allInBetweenPieces[i]);
+          allLevelPartsInstantiated[i] = null;
+          allInBetweenPieces[i] = null;
+        }
+      }
     }
 
     public void makeNextLevel()
     {
-      Instantiate(allLevelParts[playerIndex], new Vector3(0,0,currentZcoord + lengthInBetween * playerIndex), Quaternion.identity);
-      Instantiate(inBetweenPiece, new Vector3(0,0,currentZcoord + lengthInBetween/2 -25), Quaternion.identity);
-      currentZcoord += allLevelLengths[playerIndex];
+      allLevelPartsInstantiated.Add(Instantiate(allLevelParts[playerIndex], new Vector3(0,0,currentZcoord), Quaternion.identity));
+      allInBetweenPieces.Add(Instantiate(inBetweenPiece, new Vector3(0,0,currentZcoord - (float)2.5 - allLevelLengths[playerIndex + 1]/2), Quaternion.identity));
+      currentZcoord += allLevelLengths[playerIndex] + lengthInBetween;
+      allLevelPartsInstantiated[playerIndex].GetComponent<LevelPartDoorScript>().setNorthDoor(false);
       playerIndex++;
     }
 
     public void destroyPrevLevel()
     {
-
+      Destroy(allLevelPartsInstantiated[playerIndex - 1]);
+      Destroy(allInBetweenPieces[playerIndex - 1]);
     }
 
     bool EnemyCheck()
