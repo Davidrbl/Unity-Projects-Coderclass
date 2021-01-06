@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private float health = 100;
+    public float health = 100;
     private float maxHealth = 100;
 
     private Transform tf;

@@ -9,12 +9,23 @@ public class GameControllerScript : MonoBehaviour
     {
       Playing,
       Paused,
+      GameOver,
       AtTitle
     }
 
     public Image pausedOverlay;
     public Text pausedText;
-    private GameState currentGameState;
+
+    private PlayerHealth playerHealth;
+    private Transform playerTf;
+    private Rigidbody playerRb;
+
+    //private MapCreationScript mapCreationScript;
+
+
+    private GameObject playingCanvas;
+    private GameObject pausedCanvas;
+    private GameObject gameOverCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +40,57 @@ public class GameControllerScript : MonoBehaviour
       switch (gs)
       {
         case GameState.Playing:
-
-          break;
-        case GameState.Paused:
-
+            if (playerHealth.health <= 0)
+            {
+              gs = GameState.GameOver;
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+              gs = GameState.Paused;
+              pausedCanvas.SetActive(true);
+            }
             break;
+        //=======================================================================//
+        case GameState.Paused:
+            //Pauseer game/zet tijd stil
+            Time.timeScale = 0;
+
+            //Zet speler stil
+            playerRb.constraints = RigidbodyConstraints.FreezeAll;
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+              pausedCanvas.SetActive(false);
+              Time.timeScale = 1;
+              playerRb.constraints = RigidbodyConstraints.None;
+
+              gs = GameState.Playing;
+            }
+            else if (Input.GetKeyDown(KeyCode.T))
+            {
+              //Naar title screen
+              playerRb.constraints = RigidbodyConstraints.None;
+
+              gs = GameState.AtTitle;
+            }
+            break;
+        //=======================================================================//
+        case GameState.GameOver:
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+              //Weer playen
+              //playerTf.position = mapCreationScript.RespawnPos;
+
+
+              gs = GameState.Playing;
+            }
+            else if (Input.GetKeyDown(KeyCode.T))
+            {
+
+              gs = GameState.AtTitle;
+            }
+            break;
+        //=======================================================================//
         case GameState.AtTitle:
 
               break;

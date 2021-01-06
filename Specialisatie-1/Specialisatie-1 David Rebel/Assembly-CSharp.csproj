@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\WeaponSelectionScript.cs" />
      <Compile Include="Assets\Scripts\PickupScripts\HealthPickupScript.cs" />
      <Compile Include="Assets\Scripts\PickupScripts\SGammoPickupScript.cs" />
+     <Compile Include="Assets\Scripts\MapCreationScript.cs" />
      <Compile Include="Assets\Scripts\GameControllerScript.cs" />
      <Compile Include="Assets\Scripts\WeaponScripts\ShotgunScript.cs" />
      <Compile Include="Assets\Scripts\BulletScript.cs" />
