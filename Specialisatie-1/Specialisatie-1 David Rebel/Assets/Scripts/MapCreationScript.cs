@@ -15,7 +15,7 @@ public class MapCreationScript : MonoBehaviour
     private float lengthInBetween = 5f;
     public GameObject inBetweenPiece;
 
-    public bool easyMode = false;
+    public bool isFinished = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,20 +26,24 @@ public class MapCreationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (EnemyCheck())
+      if (EnemyCheck() && !isFinished)
       {
         Debug.Log("alle enemies verslagen: " + (EnemyCheck()) + " nu op: " + playerIndex);
-        makeNextLevel();
+        if (allLevelParts.Length > playerIndex + 1)
+        {
+          makeNextLevel();
+        }
+        else
+        {
+          isFinished = true;
+        }
       }
 
       Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
       for (int i = 0; i < allLevelPartsInstantiated.Count; i++)
       {
         GameObject level = allLevelPartsInstantiated[i];
-        if (level == null)
-        {
-
-        }
+        if (level == null){}
         else if (playerTransform.position.z > allLevelPartsInstantiated[i].GetComponent<Transform>().position.z + allLevelLengths[i]/2 + lengthInBetween)
         {
           Destroy(allLevelPartsInstantiated[i]);

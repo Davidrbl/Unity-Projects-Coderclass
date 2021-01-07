@@ -13,8 +13,7 @@ public class GameControllerScript : MonoBehaviour
       AtTitle
     }
 
-    public Image pausedOverlay;
-    public Text pausedText;
+    private GameState gs;
 
     private PlayerHealth playerHealth;
     private Transform playerTf;
@@ -23,26 +22,35 @@ public class GameControllerScript : MonoBehaviour
     //private MapCreationScript mapCreationScript;
 
 
-    private GameObject playingCanvas;
-    private GameObject pausedCanvas;
-    private GameObject gameOverCanvas;
+    public GameObject playingCanvas;
+    public GameObject pausedCanvas;
+    public GameObject gameOverCanvas;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+      playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+      playerTf = GameObject.Find("Player").GetComponent<Transform>();
+      playerRb = GameObject.Find("Player").GetComponent<Rigidbody>();
+      gs = GameState.Playing;
+      Debug.Log(playerHealth);
+      //playingCanvas = GameObject.Find("PlayingCanvas");
+      //pausedCanvas = GameObject.Find("PausedCanvas");
+      //gameOverCanvas = GameObject.Find("GameOverCanvas");
     }
 
     // Update is called once per frame
     void Update()
     {
-      GameState gs = GameState.AtTitle;
+
       switch (gs)
       {
         case GameState.Playing:
-            if (playerHealth.health <= 0)
+            if (playerHealth.health == 0)
             {
               gs = GameState.GameOver;
+              gameOverCanvas.SetActive(true);
             }
             else if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -69,7 +77,8 @@ public class GameControllerScript : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.T))
             {
               //Naar title screen
-              playerRb.constraints = RigidbodyConstraints.None;
+
+              Time.timeScale = 1;
 
               gs = GameState.AtTitle;
             }
@@ -80,7 +89,7 @@ public class GameControllerScript : MonoBehaviour
             {
               //Weer playen
               //playerTf.position = mapCreationScript.RespawnPos;
-
+              playerRb.constraints = RigidbodyConstraints.None;
 
               gs = GameState.Playing;
             }

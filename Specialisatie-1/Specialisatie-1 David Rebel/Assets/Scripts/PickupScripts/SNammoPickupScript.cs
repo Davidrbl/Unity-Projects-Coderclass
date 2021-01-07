@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class SNammoPickupScript : MonoBehaviour
 {
-    private float ammoAmmount = 30f;
+  private int ammoAmmount = 30;
 
-    void OnCollisionEnter(Collision collision)
+  void OnCollisionEnter(Collision collision)
+  {
+    if (collision.gameObject.name == "Player")
     {
-      if (collision.gameObject.name == "Player")
-      {
-        SniperScript sns = collision.transform.Find("Head").transform.Find("sniper").GetComponent<SniperScript>();
-        sns.Ammo += ammoAmmount;
-        sns.SendMessage("UpdateAmmo");
-        Destroy(gameObject);
-      }
+      //collision.gameObject.GetComponentInChildren(typeof(ShotgunScript)).Ammo += ammoAmmount;
+      SniperScript sgs = collision.transform.Find("Head").transform.Find("sniper").GetComponent<SniperScript>();
+      sgs.totalAmmo += ammoAmmount;
+      sgs.SendMessage("UpdateAmmo");
+      Destroy(gameObject);
     }
+  }
 }

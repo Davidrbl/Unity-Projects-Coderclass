@@ -15,13 +15,13 @@ public class machineGunScript : MonoBehaviour
 
     [SerializeField] private float timeBetweenShots = 0.2f;
 
-    public float Ammo = 100;
+    public int totalAmmo = 100;
 
-    public float ammoInMag = 10f;
+    public int currentAmmo = 10;
 
-    private float magSize = 10f;
+    private int magSize = 10;
 
-    private float BulletsPerShot = 4f;
+    private int BulletsPerShot = 4;
 
     public Text ammoText;
 
@@ -38,7 +38,7 @@ public class machineGunScript : MonoBehaviour
 
       if (Input.GetButton("Fire1") && canShoot)
       {
-        if (ammoInMag > 0)
+        if (currentAmmo > 0)
         {
           if (nextTimeToShot >= timeBetweenShots)
           {
@@ -56,7 +56,8 @@ public class machineGunScript : MonoBehaviour
     void Shoot()
         {
           Instantiate(bulletPrefab, tf.position, tf.rotation);
-          ammoInMag -= 1;
+          currentAmmo -= 1;
+          totalAmmo -= 1;
           UpdateAmmo();
         }
 
@@ -64,25 +65,21 @@ public class machineGunScript : MonoBehaviour
     {
       if (canShoot)
       {
-        ammoText.text = ammoInMag + "\t | \t" + Ammo;
+        ammoText.text = currentAmmo + "\t | \t" + (totalAmmo - currentAmmo);
       }
     }
 
     void Reload()
     {
-      Ammo -= magSize - ammoInMag;
-      if (Ammo < 0)
+      if (totalAmmo >= magSize)
       {
-        Ammo = 0;
-      }
-      if (Ammo >= magSize)
-      {
-        ammoInMag = magSize;
+        currentAmmo = magSize;
       }
       else
       {
-        ammoInMag = Ammo;
+        currentAmmo = totalAmmo;
       }
+
       UpdateAmmo();
     }
 }

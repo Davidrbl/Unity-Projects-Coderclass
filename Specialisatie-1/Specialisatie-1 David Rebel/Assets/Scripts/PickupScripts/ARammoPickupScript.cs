@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class ARammoPickupScript : MonoBehaviour
 {
-  private float ammoAmmount = 30f;
+  private int ammoAmmount = 30;
 
-
-
-  void Awake()
-  {
-    machineGunScript mgs = GameObject.Find("machinegun").GetComponent<machineGunScript>();
-    Debug.Log(mgs);
-  }
   void OnCollisionEnter(Collision collision)
   {
     if (collision.gameObject.name == "Player")
     {
-      machineGunScript mgs = collision.transform.Find("Head").transform.Find("machinegun").GetComponent<machineGunScript>();
-      mgs.Ammo += ammoAmmount;
-      mgs.SendMessage("UpdateAmmo");
+      //collision.gameObject.GetComponentInChildren(typeof(ShotgunScript)).Ammo += ammoAmmount;
+      machineGunScript sgs = collision.transform.Find("Head").transform.Find("machinegun").GetComponent<machineGunScript>();
+      sgs.totalAmmo += ammoAmmount;
+      sgs.SendMessage("UpdateAmmo");
       Destroy(gameObject);
     }
   }

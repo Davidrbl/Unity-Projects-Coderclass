@@ -21,13 +21,13 @@ public class SniperScript : MonoBehaviour
 
   [SerializeField] private float timeBetweenShots = 0.2f;
 
-  public float Ammo = 100;
+  public int totalAmmo = 100;
 
-  public float ammoInMag = 10f;
+  public int currentAmmo = 10;
 
-  private float magSize = 10f;
+  private int magSize = 10;
 
-  private float BulletsPerShot = 4f;
+  private int BulletsPerShot = 4;
 
   public Text ammoText;
 
@@ -48,7 +48,7 @@ public class SniperScript : MonoBehaviour
     if (Input.GetButtonUp("Fire1"))
     {
       StopScope();
-      if (ammoInMag > 0 && canShoot)
+      if (currentAmmo > 0 && canShoot)
       {
         Shoot();
       }
@@ -72,32 +72,30 @@ public class SniperScript : MonoBehaviour
   void Shoot()
   {
     Instantiate(bulletPrefab, tf.position, tf.rotation);
-    ammoInMag -= 1;
+    currentAmmo -= 1;
+    totalAmmo -= 1;
     UpdateAmmo();
   }
   public void UpdateAmmo()
   {
     if (canShoot)
     {
-      ammoText.text = ammoInMag + "\t | " + Ammo;
+      ammoText.text = currentAmmo + "\t | " + (totalAmmo - currentAmmo);
     }
   }
 
   void Reload()
   {
-    Ammo -= magSize - ammoInMag;
-    if (Ammo < 0)
+    if (totalAmmo >= magSize)
     {
-      Ammo = 0;
-    }
-    if (Ammo >= magSize)
-    {
-      ammoInMag = magSize;
+      currentAmmo = magSize;
     }
     else
     {
-      ammoInMag = Ammo;
+      currentAmmo = totalAmmo;
     }
+
+
     UpdateAmmo();
   }
 }

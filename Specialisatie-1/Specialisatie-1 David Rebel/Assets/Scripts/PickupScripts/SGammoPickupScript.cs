@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SGammoPickupScript : MonoBehaviour
 {
-  private float ammoAmmount = 30f;
+  private int ammoAmmount = 30;
 
   void OnCollisionEnter(Collision collision)
   {
@@ -12,7 +12,7 @@ public class SGammoPickupScript : MonoBehaviour
     {
       //collision.gameObject.GetComponentInChildren(typeof(ShotgunScript)).Ammo += ammoAmmount;
       ShotgunScript sgs = collision.transform.Find("Head").transform.Find("shotgun Variant").GetComponent<ShotgunScript>();
-      sgs.Ammo += ammoAmmount;
+      sgs.totalAmmo += ammoAmmount;
       sgs.SendMessage("UpdateAmmo");
       Destroy(gameObject);
     }

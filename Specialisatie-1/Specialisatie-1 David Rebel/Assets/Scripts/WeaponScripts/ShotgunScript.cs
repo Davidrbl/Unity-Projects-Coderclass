@@ -11,13 +11,13 @@ public class ShotgunScript : MonoBehaviour
 
     private Vector3 shootPoint = new Vector3(0, 0, (float)0.04);
 
-    public float Ammo = 100;
+    public int totalAmmo = 100;
 
-    public float ammoInMag = 10f;
+    public int currentAmmo = 10;
 
-    private float magSize = 10f;
+    public int magSize = 10;
 
-    private float BulletsPerShot = 4f;
+    private int BulletsPerShot = 4;
 
     public Text ammoText;
 
@@ -32,7 +32,7 @@ public class ShotgunScript : MonoBehaviour
     {
       if (Input.GetButtonDown("Fire1") && canShoot)
       {
-        if (ammoInMag >= BulletsPerShot)
+        if (currentAmmo >= BulletsPerShot)
         {
           for (int i = 0; i < BulletsPerShot; i++)
           {
@@ -41,7 +41,7 @@ public class ShotgunScript : MonoBehaviour
         }
         else
         {
-          for (int i = 0; i < ammoInMag; i++)
+          for (int i = 0; i < currentAmmo; i++)
           {
             Shoot(i, (i == 0));
           }
@@ -66,32 +66,29 @@ public class ShotgunScript : MonoBehaviour
             Instantiate(bulletImpulsePrefab, tf.position, tf.rotation);
             //Debug.Log("bla");
           }
-          ammoInMag -= 1;
+          currentAmmo -= 1;
+          totalAmmo -= 1;
           UpdateAmmo();
         }
     public void UpdateAmmo()
     {
       if (canShoot)
       {
-        ammoText.text = ammoInMag + "\t | \t" + Ammo;
+        ammoText.text = currentAmmo + "\t | \t" + (totalAmmo - currentAmmo);
       }
     }
 
     void Reload()
     {
-      Ammo -= magSize - ammoInMag;
-      if (Ammo < 0)
+      if (totalAmmo >= magSize)
       {
-        Ammo = 0;
-      }
-      if (Ammo >= magSize)
-      {
-        ammoInMag = magSize;
+        currentAmmo = magSize;
       }
       else
       {
-        ammoInMag = Ammo;
+        currentAmmo = totalAmmo;
       }
+
       UpdateAmmo();
     }
 }
