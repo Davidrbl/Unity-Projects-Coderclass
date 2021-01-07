@@ -38,9 +38,9 @@ public class MapCreationScript : MonoBehaviour
         GameObject level = allLevelPartsInstantiated[i];
         if (level == null)
         {
-          
+
         }
-        else if (playerTransform.position.z > allLevelPartsInstantiated[i].GetComponent<Transform>().position.z + allLevelLengths[i]/2 + lengthInBetween/2)
+        else if (playerTransform.position.z > allLevelPartsInstantiated[i].GetComponent<Transform>().position.z + allLevelLengths[i]/2 + lengthInBetween)
         {
           Destroy(allLevelPartsInstantiated[i]);
           Destroy(allInBetweenPieces[i]);
@@ -55,7 +55,7 @@ public class MapCreationScript : MonoBehaviour
       allLevelPartsInstantiated.Add(Instantiate(allLevelParts[playerIndex], new Vector3(0,0,currentZcoord), Quaternion.identity));
       allInBetweenPieces.Add(Instantiate(inBetweenPiece, new Vector3(0,0,currentZcoord - (float)2.5 - allLevelLengths[playerIndex + 1]/2), Quaternion.identity));
       currentZcoord += allLevelLengths[playerIndex] + lengthInBetween;
-      allLevelPartsInstantiated[playerIndex].GetComponent<LevelPartDoorScript>().setNorthDoor(false);
+      allLevelPartsInstantiated[playerIndex].GetComponent<LevelPartDoorScript>().prepareExit(false);
       playerIndex++;
     }
 

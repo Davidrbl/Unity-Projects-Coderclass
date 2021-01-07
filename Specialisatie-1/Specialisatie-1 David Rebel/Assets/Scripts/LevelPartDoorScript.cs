@@ -6,14 +6,16 @@ public class LevelPartDoorScript : MonoBehaviour
 {
     public GameObject northDoor;
     public GameObject southDoor;
+    public GameObject lighting;
 
     private bool isInLevel = false;
     private bool isInFirstLevel;
 
-    public void setNorthDoor(bool door)
+    public void prepareExit(bool door)
     {
       Debug.Log("north door veranderd!");
       northDoor.SetActive(door);
+      lighting.SetActive(door);
     }
 
     public void setSouthDoor(bool door)
@@ -33,6 +35,6 @@ public class LevelPartDoorScript : MonoBehaviour
 
     void Start()
     {
-      setNorthDoor(true);
+      prepareExit(true);
     }
 }

@@ -707,6 +707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   northDoor: {fileID: 5542662059957693574}
   southDoor: {fileID: 2340300802120177380}
+  lighting: {fileID: 4179988538167458856}
 --- !u!114 &4046309046863767467
 MonoBehaviour:
   m_ObjectHideFlags: 0
