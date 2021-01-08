@@ -17,17 +17,11 @@ public class SniperScript : MonoBehaviour
 
   private Vector3 shootPoint = new Vector3(0, 0, (float)0.04);
 
-  [SerializeField] private float nextTimeToShot = 0f;
+  public int totalAmmo = 30;
 
-  [SerializeField] private float timeBetweenShots = 0.2f;
+  public int currentAmmo = 3;
 
-  public int totalAmmo = 100;
-
-  public int currentAmmo = 10;
-
-  private int magSize = 10;
-
-  private int BulletsPerShot = 4;
+  private int magSize = 3;
 
   public Text ammoText;
 

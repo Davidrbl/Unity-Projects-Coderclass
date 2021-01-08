@@ -10,14 +10,14 @@ public class WeaponSelectionScript : MonoBehaviour
     private SniperScript sns;
     public GameObject[] allWeaponPrefabs;
     [SerializeField] private int currentGunIndex = 0;
-    [SerializeField] private GameObject currentGun;
+    public GameObject currentGun;
     // Start is called before the first frame update
     void Start()
     {
       sgs = GameObject.Find("shotgun Variant").GetComponent<ShotgunScript>();
       mgs = GameObject.Find("machinegun").GetComponent<machineGunScript>();
       sns = GameObject.Find("sniper").GetComponent<SniperScript>();
-      ChooseGun(allWeaponPrefabs[currentGunIndex]);
+      ChooseGun();
     }
 
     // Update is called once per frame
@@ -27,17 +27,17 @@ public class WeaponSelectionScript : MonoBehaviour
       {
         currentGunIndex += 1;
         currentGunIndex = Mathf.Clamp(currentGunIndex, 0, 2);
-        ChooseGun(allWeaponPrefabs[currentGunIndex]);
+        ChooseGun();
       }
       else if (Input.mouseScrollDelta.y > 0)
       {
         currentGunIndex -= 1;
         currentGunIndex = Mathf.Clamp(currentGunIndex, 0, 2);
-        ChooseGun(allWeaponPrefabs[currentGunIndex]);
+        ChooseGun();
       }
     }
 
-    void ChooseGun(GameObject a)
+    void ChooseGun()
     {
       if (currentGunIndex == 0)
       {
@@ -75,11 +75,7 @@ public class WeaponSelectionScript : MonoBehaviour
 
         sns.SendMessage("UpdateAmmo");
       }
-      /*
-      currentGun.SetActive(false);
-      gunObj.SetActive(true);
-      currentGun = gunObj;
-      gunObj.SendMessage("UpdateAmmo");
-      */
+
+      currentGun = allWeaponPrefabs[currentGunIndex];
     }
 }

@@ -21,8 +21,6 @@ public class machineGunScript : MonoBehaviour
 
     private int magSize = 10;
 
-    private int BulletsPerShot = 4;
-
     public Text ammoText;
 
     public bool canShoot = false;

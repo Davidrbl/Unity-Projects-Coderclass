@@ -10,7 +10,7 @@ public class MapCreationScript : MonoBehaviour
     public float[] allLevelLengths;
     [SerializeField] private List<GameObject> allLevelPartsInstantiated;
     [SerializeField] private List<GameObject> allInBetweenPieces;
-    private int playerIndex = 0;
+    [SerializeField] private int playerIndex = 0;
     private float currentZcoord = 0f;
     private float lengthInBetween = 5f;
     public GameObject inBetweenPiece;
@@ -30,7 +30,7 @@ public class MapCreationScript : MonoBehaviour
       if (EnemyCheck() && !isFinished)
       {
         Debug.Log("alle enemies verslagen: " + (EnemyCheck()) + " nu op: " + playerIndex);
-        if (allLevelParts.Length > playerIndex + 1)
+        if (allLevelParts.Length > playerIndex)
         {
           makeNextLevel();
         }
