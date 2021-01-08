@@ -62,6 +62,8 @@ public class GameControllerScript : MonoBehaviour
         case GameState.Paused:
             //Pauseer game/zet tijd stil
             Time.timeScale = 0;
+            //Lock cursor, omdat het is geunlocked door de esc knop
+            Cursor.lockState = CursorLockMode.Locked;
 
             //Zet speler stil
             playerRb.constraints = RigidbodyConstraints.FreezeAll;

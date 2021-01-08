@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\BloodScript.cs" />
      <Compile Include="Assets\Scripts\BulletImpactScript.cs" />
+     <Compile Include="Assets\UIscalerScript.cs" />
      <None Include="Assets\Imported assets\License.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/david/Documents/GitHub/Unity-Projects-Coderclass/Specialisatie-1/Specialisatie-1 David Rebel/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

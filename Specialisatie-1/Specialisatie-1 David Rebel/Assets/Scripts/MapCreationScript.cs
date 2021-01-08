@@ -21,6 +21,7 @@ public class MapCreationScript : MonoBehaviour
     {
       allLevelPartsInstantiated.Add(Instantiate(allLevelParts[playerIndex], new Vector3(0,0,currentZcoord), Quaternion.identity));
       currentZcoord += allLevelLengths[playerIndex] + lengthInBetween;
+      playerIndex++;
     }
 
     // Update is called once per frame
@@ -59,7 +60,7 @@ public class MapCreationScript : MonoBehaviour
       allLevelPartsInstantiated.Add(Instantiate(allLevelParts[playerIndex], new Vector3(0,0,currentZcoord), Quaternion.identity));
       allInBetweenPieces.Add(Instantiate(inBetweenPiece, new Vector3(0,0,currentZcoord - (float)2.5 - allLevelLengths[playerIndex + 1]/2), Quaternion.identity));
       currentZcoord += allLevelLengths[playerIndex] + lengthInBetween;
-      allLevelPartsInstantiated[playerIndex].GetComponent<LevelPartDoorScript>().prepareExit(false);
+      allLevelPartsInstantiated[playerIndex - 1].GetComponent<LevelPartDoorScript>().prepareExit(false);
       playerIndex++;
     }
 
