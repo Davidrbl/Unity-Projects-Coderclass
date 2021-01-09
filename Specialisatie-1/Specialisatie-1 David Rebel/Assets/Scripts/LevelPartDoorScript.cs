@@ -13,14 +13,12 @@ public class LevelPartDoorScript : MonoBehaviour
 
     public void prepareExit(bool door)
     {
-      Debug.Log("north door veranderd!");
       northDoor.SetActive(door);
       lighting.SetActive(door);
     }
 
     public void setSouthDoor(bool door)
     {
-      Debug.Log("south door veranderd!");
       southDoor.SetActive(door);
     }
 

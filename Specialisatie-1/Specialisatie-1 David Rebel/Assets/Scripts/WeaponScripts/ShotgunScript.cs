@@ -64,7 +64,6 @@ public class ShotgunScript : MonoBehaviour
           else
           {
             Instantiate(bulletImpulsePrefab, tf.position, tf.rotation);
-            //Debug.Log("bla");
           }
           currentAmmo -= 1;
           totalAmmo -= 1;

@@ -21,7 +21,7 @@ public class GameControllerScript : MonoBehaviour
     private Rigidbody playerRb;
     private WeaponSelectionScript weaponSelectionScript;
 
-    //private MapCreationScript mapCreationScript;
+    private MapCreationScript mapCreationScript;
 
 
     public GameObject playingCanvas;
@@ -37,7 +37,8 @@ public class GameControllerScript : MonoBehaviour
       playerTf = GameObject.Find("Player").GetComponent<Transform>();
       playerRb = GameObject.Find("Player").GetComponent<Rigidbody>();
       weaponSelectionScript = GameObject.Find("Player").GetComponent<WeaponSelectionScript>();
-      gs = GameState.Playing;
+      mapCreationScript = GameObject.Find("MapInstantiator").GetComponent<MapCreationScript>();
+      gs = GameState.AtTitle;
     }
 
     // Update is called once per frame
@@ -94,6 +95,7 @@ public class GameControllerScript : MonoBehaviour
 
               gs = GameState.AtTitle;
               titleScreenCanvas.SetActive(true);
+              enableGun();
             }
             break;
         //=======================================================================//
@@ -102,13 +104,23 @@ public class GameControllerScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
               //Opnieuw beginnen
-              SceneManager.LoadScene("huh");
+              mapCreationScript.Reset();
+              playerTf.position = new Vector3(0,3,-15);
+              playerTf.rotation = Quaternion.identity;
+              gameOverCanvas.SetActive(false);
+              playerHealth.ChangeHealth(100);
+              playerRb.constraints = RigidbodyConstraints.None;
+              enableGun();
+
+              gs = GameState.Playing;
             }
             else if (Input.GetKeyDown(KeyCode.T))
             {
               //Naar title screen
               playerRb.constraints = RigidbodyConstraints.None;
+              gameOverCanvas.SetActive(false);
               titleScreenCanvas.SetActive(true);
+              enableGun();
 
               gs = GameState.AtTitle;
             }
@@ -119,11 +131,12 @@ public class GameControllerScript : MonoBehaviour
               {
                 //beginnen met het spel
                 gs = GameState.Playing;
-                SceneManager.LoadScene("huh");
+                //SceneManager.LoadScene("huh");
                 titleScreenCanvas.SetActive(false);
               }
               break;
       }
+      Debug.Log(gs);
     }
     void disableGun()
     {

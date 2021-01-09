@@ -19,9 +19,7 @@ public class MapCreationScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      allLevelPartsInstantiated.Add(Instantiate(allLevelParts[playerIndex], new Vector3(0,0,currentZcoord), Quaternion.identity));
-      currentZcoord += allLevelLengths[playerIndex] + lengthInBetween;
-      playerIndex++;
+      makeFirstOne();
     }
 
     // Update is called once per frame
@@ -29,7 +27,6 @@ public class MapCreationScript : MonoBehaviour
     {
       if (EnemyCheck() && !isFinished)
       {
-        Debug.Log("alle enemies verslagen: " + (EnemyCheck()) + " nu op: " + playerIndex);
         if (allLevelParts.Length > playerIndex)
         {
           makeNextLevel();
@@ -61,6 +58,28 @@ public class MapCreationScript : MonoBehaviour
       allInBetweenPieces.Add(Instantiate(inBetweenPiece, new Vector3(0,0,currentZcoord - (float)2.5 - allLevelLengths[playerIndex + 1]/2), Quaternion.identity));
       currentZcoord += allLevelLengths[playerIndex] + lengthInBetween;
       allLevelPartsInstantiated[playerIndex - 1].GetComponent<LevelPartDoorScript>().prepareExit(false);
+      playerIndex++;
+    }
+
+    public void Reset()
+    {
+      foreach (GameObject go in allLevelPartsInstantiated)
+      {
+        if (go != null)
+        {
+          Destroy(go);
+        }
+      }
+      playerIndex = 0;
+      allLevelPartsInstantiated.Clear();
+      currentZcoord = 0f;
+      makeFirstOne();
+    }
+
+    void makeFirstOne()
+    {
+      allLevelPartsInstantiated.Add(Instantiate(allLevelParts[playerIndex], new Vector3(0,0,currentZcoord), Quaternion.identity));
+      currentZcoord += allLevelLengths[playerIndex]/2 + lengthInBetween + allLevelLengths[playerIndex + 1]/2;
       playerIndex++;
     }
 
