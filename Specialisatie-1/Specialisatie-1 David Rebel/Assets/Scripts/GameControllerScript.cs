@@ -39,6 +39,7 @@ public class GameControllerScript : MonoBehaviour
       weaponSelectionScript = GameObject.Find("Player").GetComponent<WeaponSelectionScript>();
       mapCreationScript = GameObject.Find("MapInstantiator").GetComponent<MapCreationScript>();
       gs = GameState.AtTitle;
+      playerRb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     // Update is called once per frame
@@ -90,10 +91,14 @@ public class GameControllerScript : MonoBehaviour
               //Naar title screen
 
               Time.timeScale = 1;
-              playerRb.constraints = RigidbodyConstraints.None;
               pausedCanvas.SetActive(false);
 
               gs = GameState.AtTitle;
+              mapCreationScript.Reset();
+              playerTf.position = new Vector3(0,3,-15);
+              playerTf.rotation = Quaternion.identity;
+              gameOverCanvas.SetActive(false);
+              playerHealth.ChangeHealth(100);
               titleScreenCanvas.SetActive(true);
               enableGun();
             }
@@ -117,8 +122,12 @@ public class GameControllerScript : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.T))
             {
               //Naar title screen
-              playerRb.constraints = RigidbodyConstraints.None;
+              playerRb.constraints = RigidbodyConstraints.FreezeAll;
+              mapCreationScript.Reset();
+              playerTf.position = new Vector3(0,3,-15);
+              playerTf.rotation = Quaternion.identity;
               gameOverCanvas.SetActive(false);
+              playerHealth.ChangeHealth(100);
               titleScreenCanvas.SetActive(true);
               enableGun();
 
@@ -130,8 +139,9 @@ public class GameControllerScript : MonoBehaviour
               if (Input.GetKeyDown(KeyCode.S))
               {
                 //beginnen met het spel
+                playerRb.constraints = RigidbodyConstraints.None;
+
                 gs = GameState.Playing;
-                //SceneManager.LoadScene("huh");
                 titleScreenCanvas.SetActive(false);
               }
               break;
