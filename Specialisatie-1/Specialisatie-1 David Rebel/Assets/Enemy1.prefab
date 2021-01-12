@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 2821773743878707109}
   - component: {fileID: 2916115433396093594}
   m_Layer: 8
-  m_Name: TestEnemy
+  m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTf: {fileID: 0}
+  enemyBullet: {fileID: 6774475802427562652, guid: 15b4712a2d5d2df4db94c09368f8fcc8, type: 3}
 --- !u!114 &2821773743878707109
 MonoBehaviour:
   m_ObjectHideFlags: 0

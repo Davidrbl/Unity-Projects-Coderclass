@@ -15,6 +15,10 @@ public class Enemy1Experiment : MonoBehaviour
     private int isInRangeFactor = 0;
     private Vector3 prevVel = new Vector3(0,0,0);
     private float sineAway;
+
+    public GameObject enemyBullet;
+    private float nextTimeToShot = 0f;
+    private float timeBetweenShots = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +26,11 @@ public class Enemy1Experiment : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerTf = GameObject.Find("Player").GetComponent<Transform>();
         sineAway = Random.Range((float)0.00, (float)5.00);
+        nextTimeToShot += sineAway;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //tf.position = new Vector3(Mathf.Sin(time), 3, 0);
         Vector3 lookPos = playerTf.position - tf.position;
@@ -45,6 +50,19 @@ public class Enemy1Experiment : MonoBehaviour
         rb.AddForce(currVel - prevVel, ForceMode.Impulse);
         prevVel = currVel;
         time += 0.05f;
+    }
+    void Update()
+    {
+      nextTimeToShot += Time.deltaTime;
+      if (nextTimeToShot > timeBetweenShots)
+      {
+        Shoot();
+        nextTimeToShot = 0f;
+      }
+    }
 
+    void Shoot()
+    {
+      Instantiate(enemyBullet, tf.position, Quaternion.LookRotation(playerTf.position - tf.position, Vector3.up));
     }
 }
