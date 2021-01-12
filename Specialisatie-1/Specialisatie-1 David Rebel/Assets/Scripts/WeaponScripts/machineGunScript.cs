@@ -40,8 +40,10 @@ public class machineGunScript : MonoBehaviour
         {
           if (nextTimeToShot >= timeBetweenShots)
           {
+            Debug.Log("preshot");
             Shoot();
             nextTimeToShot = 0f;
+            Debug.Log("after shot");
           }
         }
       }
@@ -54,6 +56,7 @@ public class machineGunScript : MonoBehaviour
     void Shoot()
         {
           Instantiate(bulletPrefab, tf.position, tf.rotation);
+          Debug.Log("shoot");
           currentAmmo -= 1;
           totalAmmo -= 1;
           UpdateAmmo();
