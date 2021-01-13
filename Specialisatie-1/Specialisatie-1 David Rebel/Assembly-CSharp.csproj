@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\WeaponScripts\machineGunScript.cs" />
+     <Compile Include="Assets\Scripts\EnemyBulletScript.cs" />
      <Compile Include="Assets\Scripts\GrapplingGunScript.cs" />
      <Compile Include="Assets\Scripts\MovementLooking Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\GrappleScript.cs" />
@@ -78,7 +79,6 @@
      <Compile Include="Assets\Scripts\BloodScript.cs" />
      <Compile Include="Assets\Scripts\UIscalerScript.cs" />
      <Compile Include="Assets\Scripts\BulletImpactScript.cs" />
-     <Compile Include="Assets\Scripts\EnemyBulletScript.cs" />
      <None Include="Assets\Imported assets\License.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/david/Documents/GitHub/Unity-Projects-Coderclass/Specialisatie-1/Specialisatie-1 David Rebel/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

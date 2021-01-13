@@ -38,6 +38,7 @@ public class GameControllerScript : MonoBehaviour
       playerRb = GameObject.Find("Player").GetComponent<Rigidbody>();
       weaponSelectionScript = GameObject.Find("Player").GetComponent<WeaponSelectionScript>();
       mapCreationScript = GameObject.Find("MapInstantiator").GetComponent<MapCreationScript>();
+      mapCreationScript.enabled = false;
       gs = GameState.AtTitle;
       playerRb.constraints = RigidbodyConstraints.FreezeAll;
     }
@@ -140,6 +141,10 @@ public class GameControllerScript : MonoBehaviour
               {
                 //beginnen met het spel
                 playerRb.constraints = RigidbodyConstraints.None;
+
+                //Maak level
+                mapCreationScript.enabled = true;
+                //mapCreationScript.makeFirstOne();
 
                 gs = GameState.Playing;
                 titleScreenCanvas.SetActive(false);

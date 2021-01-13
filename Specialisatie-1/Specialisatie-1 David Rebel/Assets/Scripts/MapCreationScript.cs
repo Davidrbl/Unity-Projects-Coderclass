@@ -19,7 +19,7 @@ public class MapCreationScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      makeFirstOne();
+      //makeFirstOne();
     }
 
     // Update is called once per frame
@@ -70,13 +70,13 @@ public class MapCreationScript : MonoBehaviour
           Destroy(go);
         }
       }
-      playerIndex = 0;
+      playerIndex = 1;
       allLevelPartsInstantiated.Clear();
       currentZcoord = 0f;
-      makeFirstOne();
+      //makeFirstOne();
     }
 
-    void makeFirstOne()
+    public void makeFirstOne()
     {
       allLevelPartsInstantiated.Add(Instantiate(allLevelParts[playerIndex], new Vector3(0,0,currentZcoord), Quaternion.identity));
       currentZcoord += allLevelLengths[playerIndex]/2 + lengthInBetween + allLevelLengths[playerIndex + 1]/2;
