@@ -151,7 +151,7 @@ public class GameControllerScript : MonoBehaviour
               }
               break;
       }
-      Debug.Log(gs);
+      //Debug.Log(gs);
     }
     void disableGun()
     {

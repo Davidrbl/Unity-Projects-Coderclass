@@ -19,7 +19,7 @@ public class MapCreationScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      //makeFirstOne();
+      makeFirstOne();
     }
 
     // Update is called once per frame
@@ -70,10 +70,10 @@ public class MapCreationScript : MonoBehaviour
           Destroy(go);
         }
       }
-      playerIndex = 1;
+      playerIndex = 0;
       allLevelPartsInstantiated.Clear();
       currentZcoord = 0f;
-      //makeFirstOne();
+      makeFirstOne();
     }
 
     public void makeFirstOne()
