@@ -73,6 +73,7 @@ public class MapCreationScript : MonoBehaviour
       playerIndex = 0;
       allLevelPartsInstantiated.Clear();
       currentZcoord = 0f;
+      isFinished = false;
       makeFirstOne();
     }
 
