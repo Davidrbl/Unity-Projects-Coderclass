@@ -21,7 +21,6 @@ public class EnemyBulletScript : MonoBehaviour
     if (collision.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
     {
       collision.transform.gameObject.SendMessage("ChangeHealth", -10);
-      Debug.Log("damage!");
       Destroy(gameObject);
     }
     else if (collision.transform.gameObject.layer != LayerMask.NameToLayer("Bullets") && collision.transform.gameObject.layer != LayerMask.NameToLayer("Enemy"))

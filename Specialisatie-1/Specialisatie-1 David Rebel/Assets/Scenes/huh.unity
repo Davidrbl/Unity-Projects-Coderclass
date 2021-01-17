@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 160, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84222545
 MonoBehaviour:
@@ -193,10 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'title screen
-
-
-    Druk op S om te spelen'
+  m_Text: Druk op S om te spelen
 --- !u!222 &84222546
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -906,10 +903,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'yu dej
+  m_Text: 'YOU DIED
 
 
-    haha'
+    Druk op R om opnieuw te beginnen
+
+
+    Druk op T om terug
+    te gaan naar het menu'
 --- !u!222 &641018417
 CanvasRenderer:
   m_ObjectHideFlags: 0

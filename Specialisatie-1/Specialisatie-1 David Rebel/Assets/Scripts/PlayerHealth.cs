@@ -19,18 +19,6 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown("o"))
-        {
-          ChangeHealth(10);
-        }
-        if (Input.GetKeyDown("p"))
-        {
-          ChangeHealth(-10);
-        }
-
-    }
     public void ChangeHealth(float changeHealth)
     {
       health += changeHealth;

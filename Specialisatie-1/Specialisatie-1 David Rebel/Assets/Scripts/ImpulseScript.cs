@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ImpulseScript : MonoBehaviour
 {
-    private float ImpulseStrenth = 50f;
-    private float playerImpulseStrength = 100f;
+    private float ImpulseStrenth = 800f;
     private float ImpulseRadius = 10f;
     public LayerMask lm;
     private Transform tf;
@@ -27,15 +26,7 @@ public class ImpulseScript : MonoBehaviour
           Rigidbody objRb = hitColliders[i].GetComponent<Rigidbody>();
           if (objRb != null)
           {
-            if (objRb.gameObject.name == "Player")
-            {
-              objRb.AddForce((moveDir) * playerImpulseStrength);
-            }
-            else
-            {
-              objRb.AddForce((moveDir) * ImpulseStrenth);
-            }
-
+              objRb.AddForce(moveDir.normalized * ImpulseStrenth);
           }
 
           //Debug.Log("\t" + moveDir + hitColliders[i]);
