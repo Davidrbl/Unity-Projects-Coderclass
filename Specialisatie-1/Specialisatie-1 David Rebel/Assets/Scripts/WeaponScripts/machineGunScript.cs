@@ -11,13 +11,13 @@ public class machineGunScript : MonoBehaviour
 
     private Vector3 shootPoint = new Vector3(0, 0, (float)0.04);
 
-    [SerializeField] private float nextTimeToShot = 0f;
+    private float nextTimeToShot = 0f;
 
-    [SerializeField] private float timeBetweenShots = 0.2f;
+    private float timeBetweenShots = 0.2f;
 
     public int totalAmmo = 100;
 
-    public int currentAmmo = 10;
+    private int currentAmmo = 10;
 
     private int magSize = 10;
 

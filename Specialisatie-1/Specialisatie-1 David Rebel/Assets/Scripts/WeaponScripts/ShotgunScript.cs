@@ -13,9 +13,9 @@ public class ShotgunScript : MonoBehaviour
 
     public int totalAmmo = 100;
 
-    public int currentAmmo = 10;
+    private int currentAmmo = 10;
 
-    public int magSize = 10;
+    private int magSize = 10;
 
     private int BulletsPerShot = 4;
 

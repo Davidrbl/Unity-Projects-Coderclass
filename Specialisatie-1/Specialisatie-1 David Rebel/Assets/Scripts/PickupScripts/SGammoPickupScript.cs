@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SGammoPickupScript : MonoBehaviour
 {
-  private int ammoAmmount = 30;
+  private int ammoAmmount = 24;
 
   void OnCollisionEnter(Collision collision)
   {
