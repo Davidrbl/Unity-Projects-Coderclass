@@ -2498,7 +2498,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: vidja gaem
+  m_Text: video game??
 --- !u!222 &2078051763
 CanvasRenderer:
   m_ObjectHideFlags: 0

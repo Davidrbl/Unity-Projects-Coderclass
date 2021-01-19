@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1856
     height: 987
-  m_MinSize: {x: 878, y: 471}
+  m_MinSize: {x: 880, y: 471}
   m_MaxSize: {x: 18001, y: 14021}
   vertical: 0
-  controlID: 2512
+  controlID: 978
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,10 +135,10 @@ MonoBehaviour:
     y: 0
     width: 1524
     height: 987
-  m_MinSize: {x: 603, y: 471}
+  m_MinSize: {x: 605, y: 471}
   m_MaxSize: {x: 14001, y: 14021}
   vertical: 1
-  controlID: 2513
+  controlID: 935
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,10 +161,10 @@ MonoBehaviour:
     y: 0
     width: 1524
     height: 622
-  m_MinSize: {x: 603, y: 221}
-  m_MaxSize: {x: 12003, y: 4021}
+  m_MinSize: {x: 605, y: 221}
+  m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 2514
+  controlID: 867
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 40fbffff
+      m_ExpandedIDs: 34fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -264,8 +264,8 @@ MonoBehaviour:
     y: 0
     width: 776
     height: 622
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -333,9 +333,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 28.21167, y: 24.528156, z: 124.643616}
+    m_Target: {x: 35.831894, y: 25.61532, z: 87.11338}
     speed: 2
-    m_Value: {x: 28.21167, y: 24.528156, z: 124.643616}
+    m_Value: {x: 35.831894, y: 25.61532, z: 87.11338}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -382,13 +382,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.099463806, y: 0.540083, z: -0.064470515, w: -0.83322483}
+    m_Target: {x: -0.06537348, y: 0.90888673, z: -0.15583862, w: -0.3812735}
     speed: 2
-    m_Value: {x: -0.09946367, y: 0.5400823, z: -0.06447043, w: -0.83322376}
+    m_Value: {x: -0.06537335, y: 0.908885, z: -0.15583833, w: -0.3812728}
   m_Size:
-    m_Target: 4.6436224
+    m_Target: 3.091012
     speed: 2
-    m_Value: 4.6436224
+    m_Value: 3.091012
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_MinSize: {x: 331, y: 250}
   m_MaxSize: {x: 14001, y: 10000}
   vertical: 0
-  controlID: 2400
+  controlID: 936
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -457,8 +457,8 @@ MonoBehaviour:
     y: 0
     width: 509
     height: 365
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -508,8 +508,8 @@ MonoBehaviour:
     y: 0
     width: 1015
     height: 365
-  m_MinSize: {x: 232, y: 271}
-  m_MaxSize: {x: 10002, y: 10021}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -553,12 +553,12 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\david\Documents\GitHub\Unity-Projects-Coderclass\Specialisatie-1\Specialisatie-1
     David Rebel
@@ -566,8 +566,8 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5a410000
-    m_LastClickedID: 16730
+    m_SelectedIDs: 4a410000
+    m_LastClickedID: 16714
     m_ExpandedIDs: 000000004a41000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -621,8 +621,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: e8370000
-    m_LastClickedInstanceID: 14312
+    m_SelectedInstanceIDs: 8c370000
+    m_LastClickedInstanceID: 14220
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -709,7 +709,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 14312
+  m_LastInspectedObjectInstanceID: 14220
   m_LastVerticalScrollValue: 0
   m_AssetGUID: 
   m_InstanceID: 0
