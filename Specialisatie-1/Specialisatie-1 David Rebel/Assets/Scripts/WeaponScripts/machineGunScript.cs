@@ -34,17 +34,12 @@ public class machineGunScript : MonoBehaviour
     {
       nextTimeToShot += Time.deltaTime;
 
-      if (Input.GetButton("Fire1") && canShoot)
+      if (Input.GetButton("Fire1") && canShoot && currentAmmo > 0 && nextTimeToShot >= timeBetweenShots)
       {
-        if (currentAmmo > 0)
-        {
-          if (nextTimeToShot >= timeBetweenShots)
-          {
-            Shoot();
-            nextTimeToShot = 0f;
-          }
-        }
+        Shoot();
+        nextTimeToShot = 0f;
       }
+      
       if (Input.GetKeyDown(KeyCode.R) && canShoot)
       {
         Reload();

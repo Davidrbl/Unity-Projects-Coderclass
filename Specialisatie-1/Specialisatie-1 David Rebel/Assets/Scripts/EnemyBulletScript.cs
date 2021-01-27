@@ -28,5 +28,4 @@ public class EnemyBulletScript : MonoBehaviour
       Destroy(gameObject);
     }
   }
-
 }

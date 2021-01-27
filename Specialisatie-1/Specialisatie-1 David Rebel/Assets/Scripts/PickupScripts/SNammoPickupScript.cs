@@ -10,7 +10,6 @@ public class SNammoPickupScript : MonoBehaviour
   {
     if (collision.gameObject.name == "Player")
     {
-      //collision.gameObject.GetComponentInChildren(typeof(ShotgunScript)).Ammo += ammoAmmount;
       SniperScript sgs = collision.transform.Find("Head").transform.Find("sniper").GetComponent<SniperScript>();
       sgs.totalAmmo += ammoAmmount;
       sgs.SendMessage("UpdateAmmo");

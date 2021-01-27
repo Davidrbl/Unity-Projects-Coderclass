@@ -25,12 +25,10 @@ public class GrapplingGunScript : MonoBehaviour
   {
     if (Input.GetMouseButtonDown(1))
     {
-      //Debug.Log("grapple!!");
       FireGrapple();
     }
     else if (Input.GetMouseButtonUp(1))
     {
-      //Debug.Log("grapple Stopped!!!");
       StopGrapple();
     }
 
@@ -52,11 +50,7 @@ public class GrapplingGunScript : MonoBehaviour
   public void StartGrapple(GameObject grapple)
   {
     Vector3 grapplePos = grapple.GetComponent<Transform>().position;
-    //Debug.Log("Start grapple at: " + grapplePos);
     joint = grapple.gameObject.AddComponent<SpringJoint>();
-    //Debug.Log("Spring joint added!");
-    //joint.autoConfigureConnectedAnchor = false;
-    //joint.anchor = grapplePos;
     joint.connectedBody = rb;
 
     float distanceToJoint = Vector3.Distance(tf.position, grapplePos);
@@ -76,7 +70,6 @@ public class GrapplingGunScript : MonoBehaviour
   {
     Destroy(grappleObj);
     Destroy(joint);
-    //Debug.Log("Spring joint destroyed!");
     lr.positionCount = 0;
     isGrappling = false;
   }

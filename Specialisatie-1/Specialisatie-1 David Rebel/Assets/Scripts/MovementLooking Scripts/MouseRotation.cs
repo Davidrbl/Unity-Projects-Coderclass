@@ -14,8 +14,6 @@ public class MouseRotation : MonoBehaviour
 
     public float mouseSensitivity;
 
-
-
     // Start is called before the first frame update
     void Start()
     {

@@ -30,9 +30,4 @@ public class LevelPartDoorScript : MonoBehaviour
         isInLevel = true;
       }
     }
-
-    void Start()
-    {
-      prepareExit(true);
-    }
 }

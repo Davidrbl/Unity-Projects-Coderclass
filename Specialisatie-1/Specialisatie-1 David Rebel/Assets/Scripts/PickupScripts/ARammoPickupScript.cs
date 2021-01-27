@@ -10,7 +10,6 @@ public class ARammoPickupScript : MonoBehaviour
   {
     if (collision.gameObject.name == "Player")
     {
-      //collision.gameObject.GetComponentInChildren(typeof(ShotgunScript)).Ammo += ammoAmmount;
       machineGunScript sgs = collision.transform.Find("Head").transform.Find("machinegun").GetComponent<machineGunScript>();
       sgs.totalAmmo += ammoAmmount;
       sgs.SendMessage("UpdateAmmo");

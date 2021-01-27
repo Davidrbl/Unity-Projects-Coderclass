@@ -40,19 +40,5 @@ public class PlayerMovement : MonoBehaviour
 
          rb.AddForce(new Vector3(moveDir.x, 0, moveDir.z) * speedMultiplier, ForceMode.Impulse);
          rb.AddForce(new Vector3(-rb.velocity.x, 0, -rb.velocity.z) * counterFactor);
-
-
-
-         //rb.AddForce(Vector3.Lerp(rb.velocity, moveDir, 4));
-
-         if (Input.GetKeyDown("space"))
-         {
-           Jump();
-         }
-    }
-
-    void Jump()
-    {
-      rb.AddForce(0, jumpVelocity, 0, ForceMode.Impulse); //= new Vector3(rb.velocity.x, jumpVelocity, rb.velocity.z);
     }
 }

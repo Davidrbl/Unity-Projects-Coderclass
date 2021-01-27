@@ -13,9 +13,9 @@ public class ShotgunScript : MonoBehaviour
 
     public int totalAmmo = 100;
 
-    private int currentAmmo = 10;
+    private int currentAmmo = 8;
 
-    private int magSize = 10;
+    private int magSize = 8;
 
     private int BulletsPerShot = 4;
 
@@ -47,6 +47,7 @@ public class ShotgunScript : MonoBehaviour
           }
         }
       }
+
       if (Input.GetKeyDown(KeyCode.R) && canShoot)
       {
         Reload();
@@ -55,7 +56,7 @@ public class ShotgunScript : MonoBehaviour
     }
 
     void Shoot(int spreadRadius, bool hasImpact)
-        {
+    {
           if (!hasImpact)
           {
             Vector3 spread = Random.insideUnitSphere * spreadRadius;
@@ -68,7 +69,8 @@ public class ShotgunScript : MonoBehaviour
           currentAmmo -= 1;
           totalAmmo -= 1;
           UpdateAmmo();
-        }
+    }
+
     public void UpdateAmmo()
     {
       if (canShoot)

@@ -39,6 +39,7 @@ public class GameControllerScript : MonoBehaviour
       weaponSelectionScript = GameObject.Find("Player").GetComponent<WeaponSelectionScript>();
       mapCreationScript = GameObject.Find("MapInstantiator").GetComponent<MapCreationScript>();
       mapCreationScript.enabled = false;
+      Time.timeScale = 0;
       gs = GameState.AtTitle;
       playerRb.constraints = RigidbodyConstraints.FreezeAll;
     }
@@ -146,12 +147,13 @@ public class GameControllerScript : MonoBehaviour
                 mapCreationScript.enabled = true;
                 //mapCreationScript.makeFirstOne();
 
+                Time.timeScale = 1;
+
                 gs = GameState.Playing;
                 titleScreenCanvas.SetActive(false);
               }
               break;
       }
-      //Debug.Log(gs);
     }
     void disableGun()
     {

@@ -29,6 +29,5 @@ public class GrappleScript : MonoBehaviour
       tf.parent = collision.transform;
       hascollided = true;
     }
-    //Debug.Log(collision.gameObject.layer);
   }
 }

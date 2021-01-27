@@ -39,6 +39,7 @@ public class SniperScript : MonoBehaviour
     {
       StartScope();
     }
+    
     if (Input.GetButtonUp("Fire1"))
     {
       StopScope();
@@ -47,6 +48,7 @@ public class SniperScript : MonoBehaviour
         Shoot();
       }
     }
+
     if (Input.GetKeyDown(KeyCode.R) && canShoot)
     {
       Reload();
@@ -63,6 +65,7 @@ public class SniperScript : MonoBehaviour
     //Camera zoomt uit
     cam.fieldOfView = normalCamFOV;
   }
+
   void Shoot()
   {
     Instantiate(bulletPrefab, tf.position, tf.rotation);
@@ -70,6 +73,7 @@ public class SniperScript : MonoBehaviour
     totalAmmo -= 1;
     UpdateAmmo();
   }
+
   public void UpdateAmmo()
   {
     if (canShoot)
@@ -88,7 +92,6 @@ public class SniperScript : MonoBehaviour
     {
       currentAmmo = totalAmmo;
     }
-
 
     UpdateAmmo();
   }

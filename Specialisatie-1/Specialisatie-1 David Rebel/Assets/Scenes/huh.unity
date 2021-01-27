@@ -321,7 +321,9 @@ MonoBehaviour:
   - {fileID: 3961337183388115821, guid: 4c7b704a567c67a4f800661b6357ce8b, type: 3}
   - {fileID: 2102607519832974259, guid: 31354b0f9c37bb84c8cd00fd1201bc87, type: 3}
   - {fileID: 5608197546169261496, guid: d7bfbf7ffbbf2de4295295578e1ab350, type: 3}
+  - {fileID: 6029853744841893060, guid: bb6f77f89c6ff784ba3239e5c8289b94, type: 3}
   allLevelLengths:
+  - 50
   - 50
   - 50
   - 50
@@ -868,7 +870,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 100}
+  m_SizeDelta: {x: 160, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &641018416
 MonoBehaviour:
@@ -2498,7 +2500,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: video game??
+  m_Text: Specialisatie David Rebel
 --- !u!222 &2078051763
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -39,41 +39,41 @@ public class WeaponSelectionScript : MonoBehaviour
 
     void ChooseGun()
     {
-      if (currentGunIndex == 0)
+      switch (currentGunIndex)
       {
-        sgs.canShoot = true;
-        mgs.canShoot = false;
-        sns.canShoot = false;
+        case 0:
+          sgs.canShoot = true;
+          mgs.canShoot = false;
+          sns.canShoot = false;
 
-        allWeaponVisuals[0].SetActive(true);
-        allWeaponVisuals[1].SetActive(false);
-        allWeaponVisuals[2].SetActive(false);
+          allWeaponVisuals[0].SetActive(true);
+          allWeaponVisuals[1].SetActive(false);
+          allWeaponVisuals[2].SetActive(false);
 
-        sgs.SendMessage("UpdateAmmo");
-      }
-      else if (currentGunIndex == 1)
-      {
-        sgs.canShoot = false;
-        mgs.canShoot = true;
-        sns.canShoot = false;
+          sgs.SendMessage("UpdateAmmo");
+          break;
+        case 1:
+          sgs.canShoot = false;
+          mgs.canShoot = true;
+          sns.canShoot = false;
 
-        allWeaponVisuals[0].SetActive(false);
-        allWeaponVisuals[1].SetActive(true);
-        allWeaponVisuals[2].SetActive(false);
+          allWeaponVisuals[0].SetActive(false);
+          allWeaponVisuals[1].SetActive(true);
+          allWeaponVisuals[2].SetActive(false);
 
-        mgs.SendMessage("UpdateAmmo");
-      }
-      else if (currentGunIndex == 2)
-      {
-        sgs.canShoot = false;
-        mgs.canShoot = false;
-        sns.canShoot = true;
+          mgs.SendMessage("UpdateAmmo");
+          break;
+        case 2:
+          sgs.canShoot = false;
+          mgs.canShoot = false;
+          sns.canShoot = true;
 
-        allWeaponVisuals[0].SetActive(false);
-        allWeaponVisuals[1].SetActive(false);
-        allWeaponVisuals[2].SetActive(true);
+          allWeaponVisuals[0].SetActive(false);
+          allWeaponVisuals[1].SetActive(false);
+          allWeaponVisuals[2].SetActive(true);
 
-        sns.SendMessage("UpdateAmmo");
+          sns.SendMessage("UpdateAmmo");
+          break;
       }
 
       currentGun = allWeaponPrefabs[currentGunIndex];

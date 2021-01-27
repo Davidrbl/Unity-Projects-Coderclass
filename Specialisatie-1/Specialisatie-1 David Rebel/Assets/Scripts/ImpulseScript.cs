@@ -12,8 +12,6 @@ public class ImpulseScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      //Debug.Log("ha");
-      //GetComponent<ParticleSystem>().Play();
       tf = GetComponent<Transform>();
       int maxColliders = 10;
       Collider[] hitColliders = new Collider[maxColliders];

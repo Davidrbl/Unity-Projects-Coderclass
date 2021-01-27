@@ -84,12 +84,6 @@ public class MapCreationScript : MonoBehaviour
       playerIndex++;
     }
 
-    public void destroyPrevLevel()
-    {
-      Destroy(allLevelPartsInstantiated[playerIndex - 1]);
-      Destroy(allInBetweenPieces[playerIndex - 1]);
-    }
-
     bool EnemyCheck()
     {
       return (GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
